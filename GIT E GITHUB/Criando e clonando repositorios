@@ -1,0 +1,18 @@
+comandos básicos do terminal do windowns
+mkdir nome-da-pasta -> "make diretory", cria um diretorio (pasta)
+cd .. -> volta uma pasta
+
+comandos git
+git init -> transforma a pasta em um repositorio git
+git clone url -> clona um repositorio do github
+git romete -v -> mostra os repositorios do github que estamos vinculado
+git remote add orgin url -> conecta um repo local com remoto
+git clone URL --branch nome-da-branch --single-branch -> clona apenas uma branch do repo
+git Status -> Mostra o status de um repositorio
+git add nome-dor-arquivo -> inseri o arquivo na área de preparação
+git commit -m"mensagem que eu quiser" -> cria um commit
+git log -> mostra os commit e informações sobre
+git restore nome-do-arquivo -> restaura a modificação de um arquivo
+git commit --amend -m"mensagem" -> corrige uma mensagem
+git remote add origin url -> conecta o github com git
+$ git push -u origin main -> envia as alterações para o repo remoto

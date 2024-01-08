@@ -172,4 +172,170 @@ fun main(){
 
 */
 
+/* VERIFICAÇÃO DE IGUALDADE == e ===
+
+fun main(){
+
+    // o set é uma lista não aceita registros duplicados
+    val authors = setOf("Shakespeare", "Hemingway", "Twain")
+    val writers = setOf("Twain", "Shakespeare", "Hemingway")
+
+    println(authors == writers) // vai retornar true porque o "==" é uma comparação estrutural
+
+    println(authors === writers) // retorna false porque o "===" é uma comparação referencial
+
+}
+
+*/
+
+/* Expressão condicional (If else mais simples)
+
+fun main(){
+
+    fun maior(numero1: Int, numero2: Int) = if (numero1 > numero2) numero1 else numero2
+
+    println(maior(99,-3))
+
+}
+
+*/
+
+/* Listas List
+
+// Uma list é uma estrutura de dados ordenada, e pode ser uma lista imutavel ou mutavel
+// A função listOf() cria uma lista "read-only", ou seja, uma lista imutavel
+// O mutableListOf() cria suma lista mutavel
+
+
+val systemUsers: MutableList<Int> = mutableListOf(1,2,3)
+val sudoers: List<Int> = systemUsers
+
+fun addSystemUser(newUser: Int){
+    systemUsers.add(newUser)
+}
+fun getSysSudoers(): List<Int>{
+    return sudoers
+}
+fun main(){
+
+    addSystemUser(4)
+    println("Total sudoers: ${getSysSudoers().size}" )
+
+    getSysSudoers().forEach{
+        i -> println("Soma useful info on user $i")
+    }
+}
+
+*/
+
+/* CONJUNTOS (SET)
+// São similares as lista, a diferença é que a lista de dados "SET" não são ordenados e não permitem duplicados
+// set() cria uma lista imutavel
+// mutableSetOf() cria uma lista mutavel
+
+val openIssues: MutableSet<String> = mutableSetOf("uniqueDescr1", "uniqueDescr2", "uniqueDescr3")
+fun addIssue(uniqueDescr: String): Boolean{
+    return openIssues.add(uniqueDescr)
+}
+fun getStatus(isAdded: Boolean): String {
+
+    return if (isAdded) "registered correctly." else "marked as duplicate and rejected"
+}
+
+fun main(){
+
+    val aNewIssue: String = "uniqueDescr4"
+    val anIssueAlreadyIn: String = "uniqueDescr2"
+
+    println("Issue $aNewIssue ${getStatus(addIssue(aNewIssue))}")
+    println("Issue $anIssueAlreadyIn ${getStatus(addIssue(anIssueAlreadyIn))}")
+}
+
+*/
+
+/* MAPAS (Map)
+//mapOf e multableMapOf() funciona igual as os outros tipos de listas
+
+const val POINTS_X_PASS: Int = 15
+val EZPassAccounts: MutableMap<Int, Int> = mutableMapOf(1 to 100, 2 to 100, 3 to 100)
+val EZPassReport: Map<Int, Int> = EZPassAccounts
+
+fun updatePointsCredit(accountId: Int){
+
+    if (EZPassAccounts.containsKey(accountId)){
+        println("Updating $accountId...")
+        EZPassAccounts[accountId] = EZPassAccounts.getValue(accountId) + POINTS_X_PASS
+    } else {
+        println("ERROR: Trying to update a non-existing account (id: $accountId)")
+    }
+
+}
+
+fun accountsReport(){
+    println("EZ-Pass report:")
+    EZPassAccounts.forEach {
+        k,v -> println("ID $k: credit $v")
+    }
+}
+
+fun main(){
+
+    updatePointsCredit(1)
+    updatePointsCredit(5)
+    accountsReport()
+}
+
+*/
+
+// FUNÇÕES UTEIS
+
+/* filter -> filtra os elementos dentro de uma coleção com base em uma condiçaõ
+
+fun main(){
+
+    val numbers = listOf(1, 2, 3, -4, 5, -6)
+    val positives = numbers.filter { it > 0 }
+    val negatives = numbers.filter { it < 0 }
+
+    println("Numbers: $numbers")
+    println("Postives: $positives")
+    println("Negatives: $negatives")
+}
+*/
+
+/* map -> usado para fazer uma transformação de dados
+
+fun main(){
+
+    val numbers = listOf(1, 2, 3, -4, 5, -6)
+    val doubled = numbers.map { x -> x * 2 } // Multiplica todos os numeros pode dois
+    val triple = numbers.map { it * 3 } // multiplica todos po 3
+
+    println("Numbers: $numbers")
+    println("Postives: $doubled")
+    println("Negatives: $triple")
+
+}
+*/
+
+// flatMap
+
+fun main(){
+
+    val fruitsBag = listOf("Apple", "Orange", "Banana", "Grapes")
+    val clothesBag = listOf("Shirts", "Pants", "Jeans")
+    val cart = listOf(fruitsBag, clothesBag)
+    val mapBag = cart.map { it }
+    val floatMapBag = cart.flatMap { it } // o flatMap vai unir as duas listas
+
+    println("Your bags are: $mapBag")
+    println("The things you bought are: $floatMapBag")
+
+}
+
+
+
+
+
+
 
